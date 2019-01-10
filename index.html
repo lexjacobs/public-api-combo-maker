@@ -9,16 +9,15 @@
 <body>
 
 <script>
-
 function ready(fn) {
-  if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading"){
+  if (document.attachEvent ? document.readyState === 'complete' : document.readyState !== 'loading') {
     fn();
   } else {
     document.addEventListener('DOMContentLoaded', fn);
   }
 }
 
-  var allApis = [
+var allApis = [
   [ 'https://alexwohlbruck.github.io/cat-facts/', 'Cat Facts', 'Daily cat facts' ],
   [ 'https://thecatapi.com/docs.html', 'Cats', 'Pictures of cats from Tumblr' ],
   [ 'https://dog.ceo/dog-api/', 'Dogs', 'Based on the Stanford Dogs Dataset' ],
@@ -1051,7 +1050,7 @@ function ready(fn) {
   [ 'https://developer.yahoo.com/weather/', 'Yahoo! Weather', 'Weather' ]
 ];
 
-var template = function(first, second){
+var template = function(first, second) {
   return `<div id="container">
             <div id="first">
               <a href=${first[0]}>${first[1]} </a>: ${first[2]}
@@ -1061,7 +1060,7 @@ var template = function(first, second){
               <a href=${second[0]}>${second[1]}</a>: ${second[2]}
             </div>
           </div>`;
-}
+};
 
 var generateCombo = function() {
   var first = allApis[Math.floor(Math.random() * allApis.length)];
@@ -1070,14 +1069,15 @@ var generateCombo = function() {
   result.setAttribute('class', 'result');
   result.innerHTML = template(first, second);
   document.getElementById('results').prepend(result);
-}
+};
 
-var onLoad = function(){
+var onLoad = function() {
   document.getElementById('generate').addEventListener('click', generateCombo);
   generateCombo();
-}
+};
 
-ready(onLoad)
+ready(onLoad);
+  
 </script>
 
 <div class="intro">Simple combination/inspiration tool for the public apis listed at <a href="https://github.com/toddmotto/public-apis">github.com/toddmotto/public-apis</a></div>
